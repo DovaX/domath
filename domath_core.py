@@ -381,7 +381,7 @@ class VectorSpace:
     
     
 
-#Zobrazeni
+#Map
 class Map:
     def __init__(self,from_set,to_set,function):
         self.from_set=from_set
@@ -409,64 +409,6 @@ def euclidean_norm(point):
 
 
 
-        
-        
-
-R = RealNumbers()
-N = NaturalNumbers()
-
-A=NumberSet([1,2,3])
-
-
-I = Interval("<5.5,7.1)")
-
-
-R0plus = Interval("<0,infty)")            
-            
-            
-            
-print(R0plus.is_element(1.0))
-print(A.sample(1))
-
-
-
-R2 = cartesian_product([R,R])
-
-
-
-  
-line1=Line(Point([1,1]),Point([4,3]))
-print(line1.is_element(Point([10,7])))
-     
-
-
-
-
-print(euclidean_norm(Point([1,1])))
-
-
-
-X = VectorSpace(Point([1,1]),[Vector([1,2])])
-
-print(X.is_element(Point([2,3])))
-
-
-norm = Map(X,R,euclidean_norm)
-
-print([x.coor for x in X.sample_from_interval(5,I,0)])
-
-value=norm.evaluate(Point([2,3]))
-print(value)
-
-Y = VectorSpace()
-
-
-sample=I.bounded_sample(1000000)
-I2 = Interval.from_list_of_numbers(sample)
-print(I2.left,I2.right)
-
-
-
 
 ############################ LOGIC ###########################################
 class Theorem:
@@ -491,9 +433,9 @@ def evaluate_complex_expression(value,expr):
     return(result)
 
 
-def find_unit_circle_roots(expr,primes):
+def find_unit_circle_roots(expr,numbers):
     tol=0.000001
-    bound=np.prod(primes)
+    bound=np.prod(numbers)
     solutions=[]
     for i in range(1,bound):
         value=cmath.rect(1,cmath.pi/(bound/2)*i)
