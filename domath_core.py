@@ -288,6 +288,8 @@ class Vector:
 
     @classmethod
     def from_points(self,point1,point2):
+        print(point1.coor)
+        print(point2.coor)
         components = [point2.coor[i]-x for i,x in enumerate(point1.coor)]        
         return(Vector(components))
 
@@ -314,19 +316,19 @@ class Line:
         coor2 = [point1.coor[i]+x for i,x in enumerate(vector.components)]    
         return(Line(point1,Point(coor2)))
         
-    def is_element(self,x):
-        is_point1=sum([x.coor[i]!=self.point1.coor[i] for i in range(len(x.coor))]) #same point -> 0
-        is_point2=sum([x.coor[i]!=self.point2.coor[i] for i in range(len(x.coor))]) #same point -> 0
+    def is_element(self,point):
+        is_point1=sum([point.coor[i]!=self.point1.coor[i] for i in range(len(point.coor))]) #same point -> 0
+        is_point2=sum([point.coor[i]!=self.point2.coor[i] for i in range(len(point.coor))]) #same point -> 0
         if is_point1==0 or is_point2==0:
             return(True)
         
         vector1 = self.vector
-        vector2 = Vector.from_points(x,self.point1)
-        non_zero_component_indices = [vector2.components.index(x) for x in vector2.components if x!=0]
+        vector2 = Vector.from_points(point,self.point1)
+        non_zero_component_indices = [vector2.components.index(point) for point in vector2.components if point!=0]
         assert len(non_zero_component_indices)>0
         index = non_zero_component_indices[0]
-        norm_vector2 = [x/vector2.components[index] for x in vector2.components]
-        norm_vector1 = [x/vector1.components[index] for x in vector1.components]
+        norm_vector2 = [point/vector2.components[index] for point in vector2.components]
+        norm_vector1 = [point/vector1.components[index] for point in vector1.components]
         is_same_vector=sum([norm_vector1[i]!=norm_vector2[i] for i in range(len(norm_vector1))]) #same vector -> 0
         if is_same_vector==0:
             return(True)
@@ -366,6 +368,8 @@ class VectorSpace:
         if self.dimensions == 1:
             line = Line.from_vector(self.point,self.vectors[0])
             sample=line.sample_from_interval(n,interval,coor_index)
+           
+            
             return(sample)
         else:
             print("Not implemented yet, other dimension than 1") # TODO            
@@ -376,10 +380,7 @@ class VectorSpace:
         #what if intersection - todo - assumes disjoint spaces, missing return VectorSpace!!!
         self.dimension = sum([x.dimension for x in spaces])
 
- 
-    
-    
-    
+
 
 #Map
 class Map:
@@ -394,6 +395,11 @@ class Map:
         
         return(self.function(point))
         
+    def map_points(self,points):
+        for i,point in enumerate(points):
+            points[i]=self.evaluate(point)
+        return(points)
+    
     def is_norm(self):
         
         return(True)

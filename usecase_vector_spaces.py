@@ -47,7 +47,11 @@ print(value)
 Y = VectorSpace()
 
 
-sample=I.bounded_sample(1000000)
+sample=I.bounded_sample(10000)
 I2 = Interval.from_list_of_numbers(sample)
 print(I2.left,I2.right)
 
+points=X.sample_from_interval(10,I,0)
+print("Points",[points[i].coor for i,x in enumerate(points)])
+results=norm.map_points(points)
+print(results)
