@@ -416,10 +416,30 @@ def euclidean_norm(point):
 
 
 
+
+
 ############################ LOGIC ###########################################
-class Theorem:
-    def __init__():
+class Proposition:
+    def __init__(self):
+        
+
+class Implication:
+    def __init__(self,assumptions,result):
+        
         pass
+
+
+class Equivalence:
+    def __init__(self,assumptions,result):
+        pass
+    
+    
+class Theorem:
+    def __init__(self):
+        
+        pass
+
+
 
 
 ############################### Complex numbers ###################################   

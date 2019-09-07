@@ -55,3 +55,4 @@ points=X.sample_from_interval(10,I,0)
 print("Points",[points[i].coor for i,x in enumerate(points)])
 results=norm.map_points(points)
 print(results)
+
