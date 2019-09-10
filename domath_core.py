@@ -420,7 +420,7 @@ def euclidean_norm(point):
 
 ############################ LOGIC ###########################################
 class Proposition:
-    def __init__(self):
+    def __init__(self,rule):
         
 
 class Implication:
@@ -436,8 +436,9 @@ class Equivalence:
     
 class Theorem:
     def __init__(self):
-        
         pass
+
+
 
 
 
