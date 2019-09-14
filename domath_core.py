@@ -438,7 +438,9 @@ class Theorem:
     def __init__(self):
         pass
 
-
+class Axiom:
+    def __init__(self):
+        pass
 
 
 
