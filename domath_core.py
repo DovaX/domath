@@ -209,6 +209,11 @@ class NaturalNumbers(NumberSet):
             return(False)
 
 
+
+
+
+
+
 class Infinity:
     def __init__(self,sign=1):
         self.sign=sign
@@ -443,6 +448,15 @@ class Axiom:
         pass
 
 
+
+
+
+############################### FUNCTION SPACES ###################################
+
+
+class ContinuousF(Function):
+    def __init__(self):
+        pass
 
 
 ############################### Complex numbers ###################################   
