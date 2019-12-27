@@ -159,6 +159,18 @@ class Function:
 
 
 
+class LinearFunction(Function):
+    def __init__(self,rhs):
+        super().__init__()
+    def __str__(self,rhs):
+        super().__str__()
+    
+    
+
+
+
+
+
 ############################ SETS #################################################
 
 
@@ -417,6 +429,14 @@ class Map:
 def euclidean_norm(point):
     result=math.pow(sum([x*x for x in point.coor]),1/len(point.coor))
     return(result)
+
+
+
+
+
+
+
+
 
 
 
