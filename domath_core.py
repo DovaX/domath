@@ -165,6 +165,15 @@ class LinearFunction(Function):
     def __str__(self,rhs):
         super().__str__()
     
+
+
+class QuadraticFunction(Function):
+    def __init__(self,rhs):
+        super().__init__()
+    def __str__(self,rhs):
+        super().__str__()
+    
+    
     
 
 
