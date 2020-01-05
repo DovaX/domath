@@ -148,16 +148,10 @@ class Function:
             for i in range(len(self.rhs.terms)):
                 s+=self.rhs.terms[i].coef*(x**self.rhs.terms[i].power)
             return(s)
-
+            
         for item in x:
             y.append(f(item))        
-        
-        
         plt.plot(x,y)
-
-
-
-
 
 class LinearFunction(Function):
     def __init__(self,rhs):
@@ -165,21 +159,20 @@ class LinearFunction(Function):
     def __str__(self,rhs):
         super().__str__()
     
-
-
 class QuadraticFunction(Function):
     def __init__(self,rhs):
         super().__init__()
     def __str__(self,rhs):
         super().__str__()
+
+class ExponentialFunction(Function):
+    def __init__(self,rhs):
+        super().__init__()
+    def __str__(self,rhs):
+        super().__str__()
     
+        
     
-    
-
-
-
-
-
 ############################ SETS #################################################
 
 
