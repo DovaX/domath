@@ -171,15 +171,12 @@ class ExponentialFunction(Function):
     def __str__(self,rhs):
         super().__str__()
     
-        
     
 ############################ SETS #################################################
-
 
 class Set:
     def __init__(self):
         pass
-
 
 class NumberSet(Set):
     #contains only numbers
@@ -195,22 +192,16 @@ class NumberSet(Set):
     def sample(self,n):
         set_sample=random.sample(self.numbers,n)
         return(set_sample)        
-    
 
 class RealNumbers(NumberSet):
     def __init__(self):
         self.dimension = 1
-    
     
     def is_element(self,x):
         if type(x)==float or type(x)==int:
             return(True)
         else:
             return(False)
-
-
-
-
 
 class NaturalNumbers(NumberSet):
     def __init__(self):
@@ -222,17 +213,10 @@ class NaturalNumbers(NumberSet):
         else:
             return(False)
 
-
-
-
-
-
-
 class Infinity:
     def __init__(self,sign=1):
         self.sign=sign
-
-    
+ 
 class Interval(RealNumbers):
     def __init__(self,interval_string):
         left_part = interval_string.split(",")[0]
@@ -255,8 +239,7 @@ class Interval(RealNumbers):
             self.right = Infinity(sign=1)
         else:
             self.right = float(right_part[:-1])
-        
-    
+         
     def is_element(self,x):
         if type(self.right)!=Infinity:
             lower_than_right_bound = x<self.right
@@ -267,8 +250,7 @@ class Interval(RealNumbers):
             higher_than_left_bound = x>self.left
         else:
             higher_than_left_bound=True
-        
-        
+            
         if (lower_than_right_bound and higher_than_left_bound) or (self.l_cl and x==self.left) or (self.r_cl and x==self.right):
             return(super().is_element(x))
         else:
@@ -387,13 +369,10 @@ class VectorSpace:
         if self.dimensions == 1:
             line = Line.from_vector(self.point,self.vectors[0])
             sample=line.sample_from_interval(n,interval,coor_index)
-           
-            
             return(sample)
         else:
             print("Not implemented yet, other dimension than 1") # TODO            
      
-    
     @classmethod
     def from_vector_spaces(self,spaces):
         #what if intersection - todo - assumes disjoint spaces, missing return VectorSpace!!!
@@ -469,6 +448,9 @@ class Axiom:
     def __init__(self):
         pass
 
+class Proof:
+    def __init__(self):
+        pass
 
 
 
