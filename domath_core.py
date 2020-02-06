@@ -403,24 +403,9 @@ class Map:
         return(True)
 
 
-
-
-
-
 def euclidean_norm(point):
     result=math.pow(sum([x*x for x in point.coor]),1/len(point.coor))
     return(result)
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -496,5 +481,6 @@ def find_unit_circle_roots(expr,numbers):
     return(solutions)
 
 
-
+def take_derivative(term):
+    pass
 
